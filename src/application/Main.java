@@ -14,6 +14,8 @@ public class Main {
 
 	public static void main(String[] args) throws ParseException {
 		// TODO Auto-generated method stub
+		
+		//Testando commit
 
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		Scanner sc = new Scanner(System.in);
