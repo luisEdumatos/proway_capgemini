@@ -1,17 +1,11 @@
 package application;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
-import controller.Cadastro;
 import entities.Anuncio;
-import services.Calculadora;
-import services.Exibir;
 import view.MenuCadastro;
 import view.MenuRelatorios;
 

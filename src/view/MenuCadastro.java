@@ -13,7 +13,6 @@ public class MenuCadastro {
 		int num_anuncios;
 		int aux = 1;
 
-		/*************************CADASTRO DE ANUNCIOS*********************************************/
 		System.out.println();
 		System.out.println("----------------SISTEMA DE CADASTRO DE ANUNCIOS---------------------");
 		System.out.print("Digite a quantidade de anuncios que deseja cadastrar neste momento: ");
