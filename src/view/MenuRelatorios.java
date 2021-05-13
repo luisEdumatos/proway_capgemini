@@ -7,17 +7,18 @@ import java.util.List;
 import java.util.Scanner;
 
 import entities.Anuncio;
+import services.Calculadora;
 import services.Exibir;
 
 public class MenuRelatorios {
 
 	private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+	private static Date dataInicio = new Date();
+	private static Date dataFim = new Date();
+	private static String cliente = "Cliente";
 	
 	public static void menuRelatorios(List<Anuncio> anuncios, Scanner sc) throws ParseException { 
 		
-		Date dataInicio = new Date();
-		Date dataFim = new Date();
-		String cliente = "Cliente";
 		int aux = 0;
 		int aux2 = 1;
 
@@ -38,6 +39,14 @@ public class MenuRelatorios {
 				dataInicio = sdf.parse(sc.next());
 				System.out.print("E que iniciam antes de: (dd/MM/yyyy) ->");
 				dataFim = sdf.parse(sc.next());
+				while (Calculadora.validaData(dataInicio, dataFim) < 0) {
+					System.out.println("Atenção: Você digitou uma data final anterior a data inicial.");
+					System.out.println("Por gentileza, digite as datas corretas: ");
+					System.out.print("Relatórios que iniciam a partir de: (dd/MM/yyyy) -> ");
+					dataInicio = sdf.parse(sc.next());
+					System.out.print("E que iniciam antes de: (dd/MM/yyyy) ->");
+					dataFim = sdf.parse(sc.next());
+				}
 				Exibir.imprimeAnuncio(anuncios, aux, dataInicio, dataFim, cliente);
 			} else if (aux ==3) {
 				System.out.print("Digite o nome do cliente que deseja filtrar os relatórios existentes: ");

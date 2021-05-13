@@ -26,6 +26,15 @@ public class Cadastro {
 			Date dataInicio = sdf.parse(sc.next());
 			System.out.print("Data de término (dd/mm/yyyy): ");
 			Date dataFim = sdf.parse(sc.next());
+			while (Calculadora.validaData(dataInicio, dataFim) < 0) {
+				System.out.println();
+				System.out.println("**Atenção**: Você digitou uma data final anterior a data inicial.");
+				System.out.println("Por gentileza, digite as datas corretas: ");
+				System.out.print("Data de inicio (dd/mm/yyyy): ");
+				dataInicio = sdf.parse(sc.next());
+				System.out.print("Data de término (dd/mm/yyyy): ");
+				dataFim = sdf.parse(sc.next());
+			}
 			System.out.print("Investimento por dia (R$): ");
 			double investimento = sc.nextDouble();
 			anuncios.add(new Anuncio(nome, cliente, dataInicio, dataFim, investimento, Calculadora.valorTotal(investimento, dataFim, dataInicio), Calculadora.maxViews(investimento), Calculadora.maxClicks(investimento), Calculadora.maxSharing(investimento)));
