@@ -28,7 +28,7 @@ public class Anuncio {
 		this.maxViews = maxViews;
 		this.maxClicks = maxClicks; 
 		this.maxSharing = maxSharing; 
-		numDias = (int)(TimeUnit.MILLISECONDS.toDays(dataFim.getTime() - dataInicio.getTime())); 
+		numDias = 1 + (int)(TimeUnit.MILLISECONDS.toDays(dataFim.getTime() - dataInicio.getTime())); 
 	}
 
 	public String getNome() {

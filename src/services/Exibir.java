@@ -13,16 +13,30 @@ public class Exibir {
 				System.out.println(anuncio);
 			}
 		} else if (filtro == 2) {
+			int aux = 0; 
 			for (Anuncio anuncio : anuncios) {
 				if ((anuncio.getDataInicio().compareTo(dataInicio)>=0) && (anuncio.getDataInicio().compareTo(dataFim)<=0)) {
+					aux = 1; 
 					System.out.println(anuncio);
 				}
 			}
+			if (aux == 0) { 
+				System.out.println();
+				System.out.println("Não foi encontrado nenhum anuncio na período informado");
+				System.out.println();
+			}
 		} else {
+			int aux = 0;
 			for (Anuncio anuncio : anuncios) {
 				if (anuncio.getCliente().toLowerCase().contains(cliente.toLowerCase())) {
+					aux = 1; 
 					System.out.println(anuncio);             
 				}
+			}
+			if (aux == 0) { 
+				System.out.println();
+				System.out.println("Não foi encontrado nenhum cliente com o nome informado");
+				System.out.println();
 			}
 		}
 	}

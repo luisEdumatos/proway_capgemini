@@ -6,7 +6,7 @@ import java.util.concurrent.TimeUnit;
 public class Calculadora {
 	
 	public static double valorTotal(double investimento, Date dataFim, Date dataInicio) { 
-		int dias = (int)(TimeUnit.MILLISECONDS.toDays(dataFim.getTime() - dataInicio.getTime())); 
+		int dias = 1 + (int)(TimeUnit.MILLISECONDS.toDays(dataFim.getTime() - dataInicio.getTime())); 
 		return dias*investimento; 
 	}
 

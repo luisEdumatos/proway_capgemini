@@ -24,13 +24,20 @@ public class MenuRelatorios {
 
 		while (aux2 == 1) {
 			System.out.println();
-			System.out.println("*************MENU DE RELATORIOS****************");
-			System.out.println("Digite a opção de relatório que deseja obter: ");
+			System.out.println("*************MENU SISTEMA DE ANUNCIOS****************");
+			System.out.println("Digite a opção que deseja obter: ");
 			System.out.println("(1) - Exibir todos anuncios");
-			System.out.println("(2) - Filtrar por intervalo de tempo");
-			System.out.println("(3) - Filtrar por nome do cliente");
-			System.out.println("(4) - Voltar ao cadastro de anuncios");
+			System.out.println("(2) - Filtrar anuncios por intervalo de tempo");
+			System.out.println("(3) - Filtrar anuncios por nome do cliente");
+			System.out.println("(4) - Cadastro de anuncios");
 			aux = sc.nextInt();
+			while (aux > 4 || aux < 1) { 
+				System.out.println();
+				System.out.println("**Atenção**: Você digitou uma opção inválida");
+				System.out.println("Por gentileza, digite uma das opções existentes no menu de relatórios. ");
+				aux = sc.nextInt();
+			}
+			
 			if (aux == 1) {
 				Exibir.imprimeAnuncio(anuncios, aux, dataInicio, dataFim, cliente); 
 			} else if (aux == 2) {
@@ -48,17 +55,30 @@ public class MenuRelatorios {
 					dataFim = sdf.parse(sc.next());
 				}
 				Exibir.imprimeAnuncio(anuncios, aux, dataInicio, dataFim, cliente);
-			} else if (aux ==3) {
+			} else if (aux == 3) {
 				System.out.print("Digite o nome do cliente que deseja filtrar os relatórios existentes: ");
 				sc.nextLine();
 				cliente = sc.nextLine();
 				Exibir.imprimeAnuncio(anuncios, aux, dataInicio, dataFim, cliente);
 			} else { 
 				MenuCadastro.menuCadastro(anuncios, sc);
-			}
+			} 
 			
-			System.out.println("Deseja consultar mais algum relatório? Sim, digite 1. Não, digite 0");
+			System.out.println("Deseja voltar ao menu de opções do sistema? Sim, digite 1. Não, digite 0");
 			aux2 = sc.nextInt(); 
+			while (aux2 != 1 && aux2 != 0) { 
+				System.out.println();
+				System.out.println("**Atenção**: Você digitou uma opção inválida");
+				System.out.println("Por gentileza, digite uma das opções existentes. ");
+				System.out.println();
+				System.out.println("Deseja voltar ao menu de opções do sistema? Sim, digite 1. Não, digite 0");
+				aux2 = sc.nextInt();
+			}
+			if (aux2 == 0) { 
+				System.out.println();
+				System.out.println("Obrigado por utilizar nosso sistema de anuncios, volte sempre! ");
+				System.out.println();
+			}
 		}
 
 	}
