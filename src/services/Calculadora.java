@@ -56,7 +56,6 @@ public class Calculadora {
 		double num_clicks = 0.0;
 		double num_sharing = 0.0;
 		double aux_sharing = 0.0;
-
 		num_view += 30 * investimento;
 	
 		// Regra para o numero maximo de compartilhamentos (4)

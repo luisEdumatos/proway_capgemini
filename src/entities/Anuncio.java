@@ -14,8 +14,7 @@ public class Anuncio {
 	private double max_views;
 	private double max_clicks;
 	private double max_sharing;
-	
-	
+	private int numDias; 
 
 	private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
@@ -29,6 +28,7 @@ public class Anuncio {
 		this.max_views = max_views;
 		this.max_clicks = max_clicks; 
 		this.max_sharing = max_sharing; 
+		numDias = (int)(TimeUnit.MILLISECONDS.toDays(data_fim.getTime() - data_inicio.getTime())); 
 	}
 
 	public String getNome() {
@@ -74,16 +74,15 @@ public class Anuncio {
 	
 	@Override
 	public String toString() { 
-		int dias = (int)(TimeUnit.MILLISECONDS.toDays(getData_fim().getTime() - getData_inicio().getTime())); 
 		return "---------------------------" +
-			   "\nNome: " + getNome() +  
-		       "\nCliente: " + getCliente() +  
+			   "\nNome: " + nome +  
+		       "\nCliente: " + cliente +  
 		       "\nData inicio: " + sdf.format(getData_inicio()) + 
 		       "\nData fim: " + sdf.format(getData_fim()) + 
 		       "\nValor total: " + valor_total + 
-		       "\nMáximo de visualizações: " + dias*max_views + 
-		       "\nMáximo de cliques: " + dias*max_clicks + 
-		       "\nMáximo de compartilhamentos: " + dias*max_sharing+ 
+		       "\nMáximo de visualizações: " + numDias*max_views + 
+		       "\nMáximo de cliques: " + numDias*max_clicks + 
+		       "\nMáximo de compartilhamentos: " + numDias*max_sharing+ 
 		       "\n---------------------------";
 	}
 }
