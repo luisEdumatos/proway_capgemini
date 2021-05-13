@@ -1,157 +1,73 @@
 package services;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
-
-import entities.Anuncio;
+import java.util.concurrent.TimeUnit;
 
 public class Calculadora {
-	private List<Anuncio> anuncios = new ArrayList<>();
-	private int filtro;
-	private Date data_inicio;
-	private Date data_fim;
-	private String cliente;
-
-	SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-
-	// Construtor para filtragem geral
-	public Calculadora(List<Anuncio> anuncios, int filtro) {
-		this.anuncios = anuncios;
-		this.filtro = filtro;
+	
+	public static double valorTotal(double investimento, Date data_fim, Date data_inicio) { 
+		int dias = (int)(TimeUnit.MILLISECONDS.toDays(data_fim.getTime() - data_inicio.getTime())); 
+		return dias*investimento; 
 	}
 
-	// Construtor para filtragem por intervalo de tempo
-	public Calculadora(List<Anuncio> anuncios, int filtro, Date data_inicio, Date data_fim) {
-		this.anuncios = anuncios;
-		this.filtro = filtro;
-		this.data_inicio = data_inicio;
-		this.data_fim = data_fim;
-	}
+	
+	public static double max_views(double investimento) {
+		double num_view = 0.0;
+		double num_clicks = 0.0;
+		double num_sharing = 0.0;
+		double aux_view;
 
-	// Construtor para filtragem geral
-	public Calculadora(List<Anuncio> anuncios, int filtro, String cliente) {
-		this.anuncios = anuncios;
-		this.filtro = filtro;
-		this.cliente = cliente;
-	}
+		num_view += 30 * investimento;
+		aux_view = num_view;
 
-	public List<Anuncio> getAnuncios() {
-		return anuncios;
-	}
-
-	public double valor_total() {
-		double total = 0.0;
-		if (filtro == 0) { //filtragem geral
-			for (Anuncio anuncio : anuncios) {
-				total += anuncio.getInvestimento();
-			}
-		} else if (filtro == 1) { //filtragem por intervalo de tempo 
-			Calendar filtro_inicio = Calendar.getInstance(); 
-			Calendar filtro_fim = Calendar.getInstance(); 
-			Calendar data = Calendar.getInstance(); 
-			filtro_inicio.setTime(data_inicio);
-			filtro_fim.setTime(data_fim);
-			for (Anuncio anuncio : anuncios) {
-				data.setTime(anuncio.getData_inicio());
-				if ((data.get(Calendar.DAY_OF_YEAR) >= filtro_inicio.get(Calendar.DAY_OF_YEAR)) && (data.get(Calendar.DAY_OF_YEAR) <= filtro_fim.get(Calendar.DAY_OF_YEAR))) {
-					total += anuncio.getInvestimento();
-				}
-			}
-		} else { //filtragem por cliente 
-			for (Anuncio anuncio : anuncios) {
-				if (anuncio.getCliente().equals(cliente)) { 
-					total += anuncio.getInvestimento();			
-				}
-			}
+		// Regra para o numero maximo de compartilhamentos (4)
+		for (int i = 0; i < 4; i++) {
+			num_clicks = (aux_view / 100) * 12;
+			num_sharing = (num_clicks / 20) * 3;
+			num_view += num_sharing * 40;
+			aux_view = num_sharing * 40;
 		}
-		return total;
-	}
-
-	public double max_views() {
-		double total = 0.0; 
-		if (filtro == 0) { //filtragem geral
-			for (Anuncio anuncio : anuncios) {
-				total += anuncio.max_views();
-			}
-		} else if (filtro == 1) { //filtragem por intervalo de tempo 
-			Calendar filtro_inicio = Calendar.getInstance(); 
-			Calendar filtro_fim = Calendar.getInstance(); 
-			Calendar data = Calendar.getInstance(); 
-			filtro_inicio.setTime(data_inicio);
-			filtro_fim.setTime(data_fim);
-			for (Anuncio anuncio : anuncios) {
-				data.setTime(anuncio.getData_inicio());
-				if ((data.get(Calendar.DAY_OF_YEAR) >= filtro_inicio.get(Calendar.DAY_OF_YEAR)) && (data.get(Calendar.DAY_OF_YEAR) <= filtro_fim.get(Calendar.DAY_OF_YEAR))) {
-					total += anuncio.max_views();
-				}
-			}
-		} else { //filtragem por cliente 
-			for (Anuncio anuncio : anuncios) {
-				if (anuncio.getCliente().equals(cliente)) { 
-					total += anuncio.max_views();			
-				}
-			}
-		}
-		return total;
+		
+		return Math.round(num_view);
 	}
 	
-	public double max_clicks() {
-		double total = 0.0; 
-		if (filtro == 0) { //filtragem geral
-			for (Anuncio anuncio : anuncios) {
-				total += anuncio.max_clicks();
-			}
-		} else if (filtro == 1) { //filtragem por intervalo de tempo 
-			Calendar filtro_inicio = Calendar.getInstance(); 
-			Calendar filtro_fim = Calendar.getInstance(); 
-			Calendar data = Calendar.getInstance(); 
-			filtro_inicio.setTime(data_inicio);
-			filtro_fim.setTime(data_fim);
-			for (Anuncio anuncio : anuncios) {
-				data.setTime(anuncio.getData_inicio());
-				if ((data.get(Calendar.DAY_OF_YEAR) >= filtro_inicio.get(Calendar.DAY_OF_YEAR)) && (data.get(Calendar.DAY_OF_YEAR) <= filtro_fim.get(Calendar.DAY_OF_YEAR))) {
-					total += anuncio.max_clicks();
-				}
-			}
-		} else { //filtragem por cliente 
-			for (Anuncio anuncio : anuncios) {
-				if (anuncio.getCliente().equals(cliente)) { 
-					total += anuncio.max_clicks();			
-				}
-			}
+	
+	public static double max_clicks(double investimento) {
+		double num_view = 0.0;
+		double num_clicks = 0.0;
+		double num_sharing = 0.0;
+		double aux_clicks = 0.0;
+
+		num_view += 30 * investimento;
+	
+		// Regra para o numero maximo de compartilhamentos (4)
+		for (int i = 0; i < 4; i++) {
+			num_clicks = (num_view / 100) * 12;
+			num_sharing = (num_clicks / 20) * 3;
+			num_view = num_sharing * 40;
+			aux_clicks += num_clicks; 
 		}
-		return total;
+		
+		return Math.round(aux_clicks);
 	}
 	
-	public double max_sharing() {
-		double total = 0.0; 
-		if (filtro == 0) { //filtragem geral
-			for (Anuncio anuncio : anuncios) {
-				total += anuncio.max_sharing();
-			}
-		} else if (filtro == 1) { //filtragem por intervalo de tempo 
-			Calendar filtro_inicio = Calendar.getInstance(); 
-			Calendar filtro_fim = Calendar.getInstance(); 
-			Calendar data = Calendar.getInstance(); 
-			filtro_inicio.setTime(data_inicio);
-			filtro_fim.setTime(data_fim);
-			for (Anuncio anuncio : anuncios) {
-				data.setTime(anuncio.getData_inicio());
-				if ((data.get(Calendar.DAY_OF_YEAR) >= filtro_inicio.get(Calendar.DAY_OF_YEAR)) && (data.get(Calendar.DAY_OF_YEAR) <= filtro_fim.get(Calendar.DAY_OF_YEAR))) {
-					total += anuncio.max_sharing();
-				}
-			}
-		} else { //filtragem por cliente 
-			for (Anuncio anuncio : anuncios) {
-				if (anuncio.getCliente().equals(cliente)) { 
-					total += anuncio.max_sharing();			
-				}
-			}
+	public static double max_sharing(double investimento) {
+		double num_view = 0.0;
+		double num_clicks = 0.0;
+		double num_sharing = 0.0;
+		double aux_sharing = 0.0;
+
+		num_view += 30 * investimento;
+	
+		// Regra para o numero maximo de compartilhamentos (4)
+		for (int i = 0; i < 4; i++) {
+			num_clicks = (num_view / 100) * 12;
+			num_sharing = (num_clicks / 20) * 3;
+			num_view = num_sharing * 40;
+			aux_sharing += num_sharing; 
 		}
-		return total;
+		
+		return Math.round(aux_sharing);
 	}
 
 }
