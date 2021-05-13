@@ -5,68 +5,68 @@ import java.util.concurrent.TimeUnit;
 
 public class Calculadora {
 	
-	public static double valorTotal(double investimento, Date data_fim, Date data_inicio) { 
-		int dias = (int)(TimeUnit.MILLISECONDS.toDays(data_fim.getTime() - data_inicio.getTime())); 
+	public static double valorTotal(double investimento, Date dataFim, Date dataInicio) { 
+		int dias = (int)(TimeUnit.MILLISECONDS.toDays(dataFim.getTime() - dataInicio.getTime())); 
 		return dias*investimento; 
 	}
 
 	
-	public static double max_views(double investimento) {
-		double num_view = 0.0;
-		double num_clicks = 0.0;
-		double num_sharing = 0.0;
-		double aux_view;
+	public static double maxViews(double investimento) {
+		double numView = 0.0;
+		double numClicks = 0.0;
+		double numSharing = 0.0;
+		double auxView;
 
-		num_view += 30 * investimento;
-		aux_view = num_view;
+		numView += 30 * investimento;
+		auxView = numView;
 
 		// Regra para o numero maximo de compartilhamentos (4)
 		for (int i = 0; i < 4; i++) {
-			num_clicks = (aux_view / 100) * 12;
-			num_sharing = (num_clicks / 20) * 3;
-			num_view += num_sharing * 40;
-			aux_view = num_sharing * 40;
+			numClicks = (auxView / 100) * 12;
+			numSharing = (numClicks / 20) * 3;
+			numView += numSharing * 40;
+			auxView = numSharing * 40;
 		}
 		
-		return Math.round(num_view);
+		return Math.round(numView);
 	}
 	
 	
-	public static double max_clicks(double investimento) {
-		double num_view = 0.0;
-		double num_clicks = 0.0;
-		double num_sharing = 0.0;
-		double aux_clicks = 0.0;
+	public static double maxClicks(double investimento) {
+		double numView = 0.0;
+		double numClicks = 0.0;
+		double numSharing = 0.0;
+		double auxClicks = 0.0;
 
-		num_view += 30 * investimento;
+		numView += 30 * investimento;
 	
 		// Regra para o numero maximo de compartilhamentos (4)
 		for (int i = 0; i < 4; i++) {
-			num_clicks = (num_view / 100) * 12;
-			num_sharing = (num_clicks / 20) * 3;
-			num_view = num_sharing * 40;
-			aux_clicks += num_clicks; 
+			numClicks = (numView / 100) * 12;
+			numSharing = (numClicks / 20) * 3;
+			numView = numSharing * 40;
+			auxClicks += numClicks; 
 		}
 		
-		return Math.round(aux_clicks);
+		return Math.round(auxClicks);
 	}
 	
-	public static double max_sharing(double investimento) {
-		double num_view = 0.0;
-		double num_clicks = 0.0;
-		double num_sharing = 0.0;
-		double aux_sharing = 0.0;
-		num_view += 30 * investimento;
+	public static double maxSharing(double investimento) {
+		double numView = 0.0;
+		double numClicks = 0.0;
+		double numSharing = 0.0;
+		double auxSharing = 0.0;
+		numView += 30 * investimento;
 	
 		// Regra para o numero maximo de compartilhamentos (4)
 		for (int i = 0; i < 4; i++) {
-			num_clicks = (num_view / 100) * 12;
-			num_sharing = (num_clicks / 20) * 3;
-			num_view = num_sharing * 40;
-			aux_sharing += num_sharing; 
+			numClicks = (numView / 100) * 12;
+			numSharing = (numClicks / 20) * 3;
+			numView = numSharing * 40;
+			auxSharing += numSharing; 
 		}
 		
-		return Math.round(aux_sharing);
+		return Math.round(auxSharing);
 	}
 
 }

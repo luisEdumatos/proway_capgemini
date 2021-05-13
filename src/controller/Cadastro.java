@@ -13,9 +13,9 @@ public class Cadastro {
 
 	private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 	
-	public static void cadastraAnuncio(List<Anuncio> anuncios, int num_anuncios, Scanner sc) throws ParseException {
+	public static void cadastraAnuncio(List<Anuncio> anuncios, int numAnuncios, Scanner sc) throws ParseException {
 
-		for (int i = 0; i < num_anuncios; i++) {
+		for (int i = 0; i < numAnuncios; i++) {
 			System.out.println("\nVamos cadastrar o " + (i+1) + "º anúncio");
 			System.out.print("Nome do anuncio: ");
 			sc.nextLine();
@@ -23,12 +23,12 @@ public class Cadastro {
 			System.out.print("Nome do cliente: ");
 			String cliente = sc.nextLine();
 			System.out.print("Data de inicio (dd/mm/yyyy): ");
-			Date data_inicio = sdf.parse(sc.next());
+			Date dataInicio = sdf.parse(sc.next());
 			System.out.print("Data de término (dd/mm/yyyy): ");
-			Date data_fim = sdf.parse(sc.next());
+			Date dataFim = sdf.parse(sc.next());
 			System.out.print("Investimento por dia (R$): ");
 			double investimento = sc.nextDouble();
-			anuncios.add(new Anuncio(nome, cliente, data_inicio, data_fim, investimento, Calculadora.valorTotal(investimento, data_fim, data_inicio), Calculadora.max_views(investimento), Calculadora.max_clicks(investimento), Calculadora.max_sharing(investimento)));
+			anuncios.add(new Anuncio(nome, cliente, dataInicio, dataFim, investimento, Calculadora.valorTotal(investimento, dataFim, dataInicio), Calculadora.maxViews(investimento), Calculadora.maxClicks(investimento), Calculadora.maxSharing(investimento)));
 		}
 	}
 }

@@ -7,28 +7,28 @@ import java.util.concurrent.TimeUnit;
 public class Anuncio {
 	private String nome;
 	private String cliente;
-	private Date data_inicio;
-	private Date data_fim;
+	private Date dataInicio;
+	private Date dataFim;
 	private double investimento;
-	private double valor_total;
-	private double max_views;
-	private double max_clicks;
-	private double max_sharing;
+	private double valorTotal;
+	private double maxViews;
+	private double maxClicks;
+	private double maxSharing;
 	private int numDias; 
 
 	private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
-	public Anuncio(String nome, String cliente, Date data_inicio, Date data_fim, double investimento, double valor_total, double max_views, double max_clicks, double max_sharing) {
+	public Anuncio(String nome, String cliente, Date dataInicio, Date dataFim, double investimento, double valorTotal, double maxViews, double maxClicks, double maxSharing) {
 		this.nome = nome;
 		this.cliente = cliente;
-		this.data_inicio = data_inicio;
-		this.data_fim = data_fim;
+		this.dataInicio = dataInicio;
+		this.dataFim = dataFim;
 		this.investimento = investimento;
-		this.valor_total = valor_total; 
-		this.max_views = max_views;
-		this.max_clicks = max_clicks; 
-		this.max_sharing = max_sharing; 
-		numDias = (int)(TimeUnit.MILLISECONDS.toDays(data_fim.getTime() - data_inicio.getTime())); 
+		this.valorTotal = valorTotal; 
+		this.maxViews = maxViews;
+		this.maxClicks = maxClicks; 
+		this.maxSharing = maxSharing; 
+		numDias = (int)(TimeUnit.MILLISECONDS.toDays(dataFim.getTime() - dataInicio.getTime())); 
 	}
 
 	public String getNome() {
@@ -47,20 +47,20 @@ public class Anuncio {
 		this.cliente = cliente;
 	}
 
-	public Date getData_inicio() {
-		return data_inicio;
+	public Date getDataInicio() {
+		return dataInicio;
 	}
 
-	public void setData_inicio(Date data_inicio) {
-		this.data_inicio = data_inicio;
+	public void setDataInicio(Date dataInicio) {
+		this.dataInicio = dataInicio;
 	}
 
-	public Date getData_fim() {
-		return data_fim;
+	public Date getDataFim() {
+		return dataFim;
 	}
 
-	public void setData_fim(Date data_fim) {
-		this.data_fim = data_fim;
+	public void setDataFim(Date dataFim) {
+		this.dataFim = dataFim;
 	}
 
 	public double getInvestimento() {
@@ -77,12 +77,12 @@ public class Anuncio {
 		return "---------------------------" +
 			   "\nNome: " + nome +  
 		       "\nCliente: " + cliente +  
-		       "\nData inicio: " + sdf.format(getData_inicio()) + 
-		       "\nData fim: " + sdf.format(getData_fim()) + 
-		       "\nValor total: " + valor_total + 
-		       "\nMáximo de visualizações: " + numDias*max_views + 
-		       "\nMáximo de cliques: " + numDias*max_clicks + 
-		       "\nMáximo de compartilhamentos: " + numDias*max_sharing+ 
+		       "\nData inicio: " + sdf.format(getDataInicio()) + 
+		       "\nData fim: " + sdf.format(getDataFim()) + 
+		       "\nValor total: " + valorTotal + 
+		       "\nMáximo de visualizações: " + numDias*maxViews + 
+		       "\nMáximo de cliques: " + numDias*maxClicks + 
+		       "\nMáximo de compartilhamentos: " + numDias*maxSharing+ 
 		       "\n---------------------------";
 	}
 }

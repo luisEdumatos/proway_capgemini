@@ -15,8 +15,8 @@ public class MenuRelatorios {
 	
 	public static void menuRelatorios(List<Anuncio> anuncios, Scanner sc) throws ParseException { 
 		
-		Date data_inicio = new Date();
-		Date data_fim = new Date();
+		Date dataInicio = new Date();
+		Date dataFim = new Date();
 		String cliente = "Cliente";
 		int aux = 0;
 		int aux2 = 1;
@@ -31,19 +31,19 @@ public class MenuRelatorios {
 			System.out.println("(4) - Voltar ao cadastro de anuncios");
 			aux = sc.nextInt();
 			if (aux == 1) {
-				Exibir.imprimeAnuncio(anuncios, aux, data_inicio, data_fim, cliente); 
+				Exibir.imprimeAnuncio(anuncios, aux, dataInicio, dataFim, cliente); 
 			} else if (aux == 2) {
 				System.out.println("Digite o intervalo de tempo que deseja filtrar os relatórios existentes");
 				System.out.print("Relatórios que iniciam a partir de: (dd/MM/yyyy) -> ");
-				data_inicio = sdf.parse(sc.next());
+				dataInicio = sdf.parse(sc.next());
 				System.out.print("E que iniciam antes de: (dd/MM/yyyy) ->");
-				data_fim = sdf.parse(sc.next());
-				Exibir.imprimeAnuncio(anuncios, aux, data_inicio, data_fim, cliente);
+				dataFim = sdf.parse(sc.next());
+				Exibir.imprimeAnuncio(anuncios, aux, dataInicio, dataFim, cliente);
 			} else if (aux ==3) {
 				System.out.print("Digite o nome do cliente que deseja filtrar os relatórios existentes: ");
 				sc.nextLine();
 				cliente = sc.nextLine();
-				Exibir.imprimeAnuncio(anuncios, aux, data_inicio, data_fim, cliente);
+				Exibir.imprimeAnuncio(anuncios, aux, dataInicio, dataFim, cliente);
 			} else { 
 				MenuCadastro.menuCadastro(anuncios, sc);
 			}
