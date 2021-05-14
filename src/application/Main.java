@@ -15,6 +15,7 @@ public class Main {
 	static List<Anuncio> anuncios = new ArrayList<>();
 	
 	public static void main(String[] args) throws ParseException {
+		
 		Scanner sc = new Scanner(System.in);
 		
 		Inicia.iniciaAnuncios(anuncios);

@@ -1,9 +1,9 @@
-Academia Tecnica Capgemini executada pela ProWay
+Academia Técnica Capgemini com execução pela ProWay
 Proway
 03/05/2021
 16/05/2021
 50.0
-Senior cria Programa GoDev em parceria com a ProWay
+Senior lança Programa GoDev em parceria com a ProWay
 Proway
 03/02/2021
 20/04/2021
@@ -13,7 +13,7 @@ Capgemini
 07/04/2021
 06/09/2021
 20.0
-Agenda LGPD - Fique atento aos detalhes
+Agenda LGPD - Fique atento às prioridades
 Capgemini
 14/05/2021
 15/06/2021
@@ -23,23 +23,13 @@ Capgemini
 14/06/2021
 06/09/2021
 100.0
-Java SE 11
-Oracle
-20/05/2021
-20/06/2021
-10.0
-Angular 12
-Google
-15/08/2021
-20/09/2021
-50.0
-JavaScript
-Google
-01/05/2022
-06/09/2022
-50.0
-TypeScript
-Microsoft
-08/10/2023
-12/12/2023
-500.0
+Execução áêâoo
+João Paços
+20/05/2011
+20/06/2012
+20.0
+NovoAnuncio
+Cliente
+10/08/2005
+11/08/2005
+20.0

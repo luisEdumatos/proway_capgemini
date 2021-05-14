@@ -1,8 +1,9 @@
 package services;
 
 import java.io.BufferedWriter;
-import java.io.FileWriter;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
@@ -21,7 +22,7 @@ public class Salva {
 		String dataFim; 
 		String investimento; 
 		
-		try (BufferedWriter bw = new BufferedWriter(new FileWriter(path))) { 
+		try (BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(path), "UTF-8"))) { 
 			for (Anuncio anuncio : anuncios) {
 				nome = anuncio.getNome(); 
 				cliente = anuncio.getCliente(); 
