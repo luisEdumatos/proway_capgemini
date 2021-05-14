@@ -1,15 +1,13 @@
 package application;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
-import java.util.concurrent.TimeUnit;
 
 import entities.Anuncio;
-import view.MenuCadastro;
+import services.Inicia;
+import services.Salva;
 import view.MenuRelatorios;
 
 public class Main {
@@ -18,8 +16,12 @@ public class Main {
 	
 	public static void main(String[] args) throws ParseException {
 		Scanner sc = new Scanner(System.in);
-	
+		
+		Inicia.iniciaAnuncios(anuncios);
+		
 		MenuRelatorios.menuRelatorios(anuncios, sc);
+		
+		Salva.salvaAnuncios(anuncios);
 
 		sc.close();
 	}
