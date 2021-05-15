@@ -54,6 +54,30 @@ public class CalculadoraTest {
 	}
 
 	@Test
+	public void testValorTotal() throws ParseException {
+		Date data1 = sdf.parse("16/05/2021"); 
+		Date data2 = sdf.parse("16/05/2021"); 
+		Assert.assertEquals(10.0, calc.valorTotal(10.0, data1, data2));
+	}
+	
+	
+	@Test
+	public void testMaxViews() throws ParseException {
+		Assert.assertEquals(864.0, calc.maxViews(10.0));
+	}
+	
+	
+	@Test
+	public void testMaxClicks() throws ParseException {
+		Assert.assertEquals(94.0, calc.maxClicks(10.0));
+	}
+	
+	@Test
+	public void testMaxSharing() throws ParseException {
+		Assert.assertEquals(14.0, calc.maxSharing(10.0));
+	}
+	
+	@Test
 	public void testValidaDataIgual() throws ParseException {
 		Date data1 = sdf.parse("15/05/2021"); 
 		Date data2 = sdf.parse("15/05/2021"); 
