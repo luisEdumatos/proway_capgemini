@@ -64,6 +64,8 @@
 
 ![image](https://user-images.githubusercontent.com/32941370/118372507-50c1f400-b588-11eb-82fb-abef301931e1.png)
 
+Para este caso, a ultima versão do sistema possibilitou a comparação de nomes com ou sem acentuação. Ex: Se você cadastrou João, e buscou por joao, a busca encontrará o cliente. 
+
 <h4>(4) - Cadastro de anuncios</h4>
 <p>Nesta opção, o usuário será enviado ao menu de cadastro de anuncios. Exemplo: </p>
 
