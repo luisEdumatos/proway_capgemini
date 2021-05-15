@@ -80,9 +80,9 @@ public class Anuncio {
 		       "\nData inicio: " + sdf.format(getDataInicio()) + 
 		       "\nData fim: " + sdf.format(getDataFim()) + 
 		       "\nValor total: " + valorTotal + 
-		       "\nMáximo de visualizações: " + numDias*maxViews + 
-		       "\nMáximo de cliques: " + numDias*maxClicks + 
-		       "\nMáximo de compartilhamentos: " + numDias*maxSharing+ 
+		       "\nMáximo de visualizações: " + String.format("%.0f", numDias*maxViews) + 
+		       "\nMáximo de cliques: " + String.format("%.0f", numDias*maxClicks) + 
+		       "\nMáximo de compartilhamentos: " + String.format("%.0f", numDias*maxSharing) + 
 		       "\n---------------------------";
 	}
 }

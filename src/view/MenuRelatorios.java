@@ -46,7 +46,8 @@ public class MenuRelatorios {
 				dataInicio = sdf.parse(sc.next());
 				System.out.print("E que iniciam antes de: (dd/MM/yyyy) ->");
 				dataFim = sdf.parse(sc.next());
-				while (Calculadora.validaData(dataInicio, dataFim) < 0) {
+				while (Calculadora.validaData(dataInicio, dataFim)) {
+					System.out.println();
 					System.out.println("Atenção: Você digitou uma data final anterior a data inicial.");
 					System.out.println("Por gentileza, digite as datas corretas: ");
 					System.out.print("Relatórios que iniciam a partir de: (dd/MM/yyyy) -> ");

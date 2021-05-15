@@ -69,8 +69,12 @@ public class Calculadora {
 		return Math.round(auxSharing);
 	}
 	
-	public static int validaData (Date dataInicio, Date dataFim) { 
-		return (int)(TimeUnit.MILLISECONDS.toDays(dataFim.getTime() - dataInicio.getTime())); 
+	public static boolean validaData (Date dataInicio, Date dataFim) { 
+		if (dataFim.before(dataInicio)) { 
+			return true; 			
+		} else { 
+			return false; 
+		}
 	}
 
 }
